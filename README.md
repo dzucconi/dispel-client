@@ -16,4 +16,4 @@
 | Param        | Description                                        | Type                                                       | Default |
 | ------------ | -------------------------------------------------- | ---------------------------------------------------------- | ------- |
 | `iterations` | Number of times a phrase is processed and repeated | `integer`                                                  | `10`    |
-| `voice`      | AWS Polly voice ID                                 | (`enum`)[https://github.com/dzucconi/dispel-server#voices] | `Aditi` |
+| `voice`      | AWS Polly voice ID                                 | [`enum`](https://github.com/dzucconi/dispel-server#voices) | `Aditi` |
