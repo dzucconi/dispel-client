@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "audiate": "^0.1.1",
-    "humanization": "^2.0.0",
-    "lodash": "^4.17.14",
-    "queryparams": "^0.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "audiate": "0.1.1",
+    "humanization": "2.0.0",
+    "lodash": "4.17.14",
+    "queryparams": "0.1.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
     "react-scripts": "3.0.1",
     "react-transition-group": "4.2.1",
-    "react-use": "^9.11.0"
+    "react-use": "9.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
