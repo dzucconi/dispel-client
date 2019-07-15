@@ -1,0 +1,6 @@
+.Message {
+  color: red;
+  text-transform: uppercase;
+  padding: 1em;
+  text-align: center;
+}
