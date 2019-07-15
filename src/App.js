@@ -25,7 +25,7 @@ const step = token => {
 };
 
 const { iterations: ITERATIONS } = parameters({
-  iterations: 4
+  iterations: 10
 });
 
 const reducer = (state, action) => {
