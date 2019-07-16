@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "audiate": "0.1.1",
-    "js-levenshtein": "^1.1.6",
+    "js-levenshtein": "1.1.6",
     "lodash": "4.17.14",
     "queryparams": "0.1.0",
     "react": "16.8.6",
