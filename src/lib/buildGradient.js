@@ -1,4 +1,4 @@
-import { random, uniq, zip, sortBy } from "lodash";
+import { random, uniq, sortBy } from "lodash";
 import levenshtein from "js-levenshtein";
 
 const move = (from, to, ...a) => (a.splice(to, 0, ...a.splice(from, 1)), a);
@@ -31,18 +31,13 @@ export const buildGradient = ({ input, iterations }) => {
   );
 
   // Iterative random mutations sometimes leads to mutating *back* to originals.
-  // So we take the cumulative levenshtein distance of each message...
+  // So we take the levenshtein distance of each message...
   const scored = messages.reduce(
     (memo, message) => [
       ...memo,
       {
         message,
-        distance: zip(input.split(" "), message.split(" ")).reduce(
-          (acc, tokens) => {
-            return acc + levenshtein(...tokens);
-          },
-          0
-        )
+        distance: levenshtein(input, message)
       }
     ],
     []
