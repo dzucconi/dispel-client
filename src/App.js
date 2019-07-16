@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from "react";
-import { random, uniq } from "lodash";
+import { shuffle } from "lodash";
 import parameters from "queryparams";
 
 import { Speech } from "./components/Speech";
@@ -8,21 +8,9 @@ import { Debug } from "./components/Debug";
 import { KNOWINGS } from "./data";
 
 import "./App.css";
+import { buildGradient } from "./lib/buildGradient";
 
-const [car, ...cdr] = KNOWINGS;
-
-const move = (from, to, ...a) => (a.splice(to, 0, ...a.splice(from, 1)), a);
-
-const step = token => {
-  const chars = token.split("");
-
-  // Should extract punctuation and place it back
-  return move(
-    random(0, chars.length + 1),
-    random(0, chars.length + 1),
-    ...chars
-  ).join("");
-};
+const [car, ...cdr] = shuffle(KNOWINGS);
 
 const { iterations: ITERATIONS } = parameters({
   iterations: 10
@@ -68,20 +56,10 @@ function App() {
 
   // Build output array
   useEffect(() => {
-    const initialMessage = state.car.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "");
-
-    const times = new Array(ITERATIONS - 1).fill(undefined);
-    const messages = uniq(
-      times.reduce(
-        (acc, msg) => {
-          const tail = acc[acc.length - 1] || msg;
-          const tokens = tail.split(" ");
-
-          return [...acc, tokens.map(step).join(" ")];
-        },
-        [initialMessage]
-      )
-    );
+    const messages = buildGradient({
+      input: state.car,
+      iterations: ITERATIONS
+    });
 
     dispatch({ type: "SET_MESSAGES", messages });
   }, [state.car]);
