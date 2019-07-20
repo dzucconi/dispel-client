@@ -1,10 +1,12 @@
 import React, { memo } from "react";
 import { Transition } from "react-transition-group";
 
-const duration = 300;
+const OPACITY_DURATION = 750;
+const TRANSFORM_DURATION = 1000;
+const DURATION = Math.max(OPACITY_DURATION, TRANSFORM_DURATION);
 
 const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out, transform ${duration}ms ease-in-out`,
+  transition: `opacity ${OPACITY_DURATION}ms ease-in-out, transform ${TRANSFORM_DURATION}ms ease-in-out`,
   opacity: 0,
   transform: "translateY(0)"
 };
@@ -18,7 +20,7 @@ const transitionStyles = {
 
 export const Fade = memo(({ in: inProp, children, ...rest }) => {
   return (
-    <Transition in={inProp} timeout={duration} {...rest}>
+    <Transition in={inProp} timeout={DURATION} {...rest}>
       {state => {
         return (
           <div
