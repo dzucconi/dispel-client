@@ -11,7 +11,7 @@
     "react-dom": "16.8.6",
     "react-scripts": "3.0.1",
     "react-transition-group": "4.2.2",
-    "react-use": "10.4.0"
+    "react-use": "10.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
