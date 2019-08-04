@@ -13,7 +13,11 @@
 
 ## Parameters
 
-| Param        | Description                                        | Type                                                       | Default |
-| ------------ | -------------------------------------------------- | ---------------------------------------------------------- | ------- |
-| `iterations` | Number of times a phrase is processed and repeated | `integer`                                                  | `10`    |
-| `voice`      | AWS Polly voice ID                                 | [`enum`](https://github.com/dzucconi/dispel-server#voices) | `Aditi` |
+| Param               | Description                                        | Type                                                       | Default   |
+| ------------------- | -------------------------------------------------- | ---------------------------------------------------------- | --------- |
+| `iterations`        | Number of times a phrase is processed and repeated | `integer`                                                  | `10`      |
+| `voice`             | AWS Polly voice ID                                 | [`enum`](https://github.com/dzucconi/dispel-server#voices) | `Aditi`   |
+| `opacityDuration`   | Transition `opacity` duration                      | `number` (ms)                                              | `1000`    |
+| `transformDuration` | Transition `transform` duration                    | `number` (ms)                                              | `1250`    |
+| `translateY`        | Transition `translateY` amount                     | `string`                                                   | `"1%"`    |
+| `color`             | Text color                                         | `string`                                                   | `"white"` |

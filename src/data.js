@@ -26,7 +26,7 @@ export const KNOWINGS = [
   "all the knowing that they",
   "of divine knowings and the",
   "in the knowing of him",
-  "light of knowing, 60 that",
+  "light of knowing, that",
   "light of knowing the identification",
   "of the knowing of the",
   "perceiving, of knowing by subtlety",

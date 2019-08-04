@@ -1,26 +1,31 @@
 import React, { memo } from "react";
 import { Transition } from "react-transition-group";
+import parameters from "queryparams";
 
-const OPACITY_DURATION = 750;
-const TRANSFORM_DURATION = 1000;
-const DURATION = Math.max(OPACITY_DURATION, TRANSFORM_DURATION);
-
-const defaultStyle = {
-  transition: `opacity ${OPACITY_DURATION}ms ease-in-out, transform ${TRANSFORM_DURATION}ms ease-in-out`,
-  opacity: 0,
-  transform: "translateY(0)"
-};
-
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered: { opacity: 1 },
-  exiting: { opacity: 0, transform: "translateY(2%)" },
-  exited: { opacity: 0 }
-};
+const { opacityDuration, transformDuration, translateY } = parameters({
+  opacityDuration: 1000,
+  transformDuration: 1250,
+  translateY: "1%"
+});
 
 export const Fade = memo(({ in: inProp, children, ...rest }) => {
+  const timeout = Math.max(opacityDuration, transformDuration);
+
+  const defaultStyle = {
+    transition: `opacity ${opacityDuration}ms ease-in-out, transform ${transformDuration}ms ease-in-out`,
+    opacity: 0,
+    transform: "translateY(0)"
+  };
+
+  const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0, transform: `translateY(${translateY})` },
+    exited: { opacity: 0 }
+  };
+
   return (
-    <Transition in={inProp} timeout={DURATION} {...rest}>
+    <Transition in={inProp} timeout={timeout} {...rest}>
       {state => {
         return (
           <div

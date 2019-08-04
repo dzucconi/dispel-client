@@ -12,7 +12,7 @@ import { buildGradient } from "./lib/buildGradient";
 
 const [car, ...cdr] = shuffle(KNOWINGS);
 
-const { iterations: ITERATIONS } = parameters({
+const { iterations } = parameters({
   iterations: 10
 });
 
@@ -58,7 +58,7 @@ function App() {
   useEffect(() => {
     const messages = buildGradient({
       input: state.car,
-      iterations: ITERATIONS
+      iterations
     });
 
     dispatch({ type: "SET_MESSAGES", messages });

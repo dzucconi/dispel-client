@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useCallback } from "react";
+import parameters from "queryparams";
 
 import "./index.css";
 
 import { useSpeech } from "../../lib/useSpeech";
 import { Fade } from "../Fade";
 
-export const Speech = ({ message, dispatch }) => {
+const { color } = parameters({ color: "white" });
+
+export const Speech = ({ message, dispatch, ...rest }) => {
   const [audio, state] = useSpeech({ input: message });
   const [fade, setFade] = useState(true);
 
@@ -19,14 +22,18 @@ export const Speech = ({ message, dispatch }) => {
     setFade(true); // Message changes; fades in
   }, [message]);
 
-  const handleExit = useCallback(() => dispatch({ type: "NEXT" }), [dispatch]);
+  const handleExited = useCallback(() => dispatch({ type: "NEXT" }), [
+    dispatch
+  ]);
 
   return (
     <>
       {audio}
 
-      <Fade in={fade} onExited={handleExit}>
-        <div className="Message">{message}</div>
+      <Fade in={fade} onExited={handleExited} {...rest}>
+        <div className="Message" style={{ color }}>
+          {message}
+        </div>
       </Fade>
     </>
   );

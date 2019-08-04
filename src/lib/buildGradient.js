@@ -1,6 +1,7 @@
 import { random, uniq, sortBy } from "lodash";
 import levenshtein from "js-levenshtein";
 
+// eslint-disable-next-line no-sequences
 const move = (from, to, ...a) => (a.splice(to, 0, ...a.splice(from, 1)), a);
 
 const step = token => {
