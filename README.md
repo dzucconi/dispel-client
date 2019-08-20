@@ -21,4 +21,4 @@
 | `transformDuration` | Transition `transform` duration                    | `number` (ms)                                              | `1250`             |
 | `translateY`        | Transition `translateY` amount                     | `string`                                                   | `"1%"`             |
 | `color`             | Text color                                         | `string`                                                   | `"white"`          |
-| `mode`              | Source text selector                               | `KNOWINGS|UNDERSTANDINGS`                                  | `"UNDERSTANDINGS"` |
+| `mode`              | Source text selector                               | `KNOWINGS\|UNDERSTANDINGS`                                  | `"UNDERSTANDINGS"` |
