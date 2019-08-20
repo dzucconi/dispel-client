@@ -5,16 +5,22 @@ import parameters from "queryparams";
 import { Speech } from "./components/Speech";
 import { Debug } from "./components/Debug";
 
-import { KNOWINGS } from "./data";
+import { KNOWINGS, UNDERSTANDINGS } from "./data";
 
 import "./App.css";
 import { buildGradient } from "./lib/buildGradient";
 
-const [car, ...cdr] = shuffle(KNOWINGS);
-
-const { iterations } = parameters({
-  iterations: 10
+const { iterations, mode } = parameters({
+  iterations: 10,
+  mode: "KNOWINGS" // || 'UNDERSTANDINGS'
 });
+
+const [car, ...cdr] = shuffle(
+  {
+    KNOWINGS,
+    UNDERSTANDINGS
+  }[mode]
+);
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -54,7 +60,7 @@ function App() {
     cdr
   });
 
-  // Build output array
+  // Builds outputs
   useEffect(() => {
     const messages = buildGradient({
       input: state.car,
