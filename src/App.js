@@ -5,22 +5,38 @@ import parameters from "queryparams";
 import { Speech } from "./components/Speech";
 import { Debug } from "./components/Debug";
 
-import { KNOWINGS } from "./data";
+import { KNOWINGS, UNDERSTANDINGS } from "./data";
 
 import "./App.css";
 import { buildGradient } from "./lib/buildGradient";
 
-const [car, ...cdr] = shuffle(KNOWINGS);
-
-const { iterations } = parameters({
-  iterations: 10
+const { iterations, mode } = parameters({
+  iterations: 10,
+  mode: "KNOWINGS" // || 'UNDERSTANDINGS'
 });
+
+const [car, ...cdr] = shuffle(
+  {
+    KNOWINGS,
+    UNDERSTANDINGS
+  }[mode]
+);
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "NEXT":
+      if (state.cdr.length === 0) {
+        // Reached the end of the source messages
+        return {
+          ...state,
+          cursor: 0,
+          car,
+          cdr
+        };
+      }
+
       if (state.cursor + 1 > state.messages.length - 1) {
-        // We've reached the end
+        // We've reached the end of the iterations
         const [nextCar, ...nextCdr] = state.cdr;
         return {
           ...state,
@@ -54,7 +70,7 @@ function App() {
     cdr
   });
 
-  // Build output array
+  // Builds outputs
   useEffect(() => {
     const messages = buildGradient({
       input: state.car,
