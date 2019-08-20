@@ -36,7 +36,7 @@ const reducer = (state, action) => {
       }
 
       if (state.cursor + 1 > state.messages.length - 1) {
-        // We've reached the end of the iterations
+        // Reached the end of the iterations
         const [nextCar, ...nextCdr] = state.cdr;
         return {
           ...state,
