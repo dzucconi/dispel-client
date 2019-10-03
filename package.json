@@ -7,8 +7,8 @@
     "js-levenshtein": "1.1.6",
     "lodash": "4.17.15",
     "queryparams": "0.1.0",
-    "react": "16.10.1",
-    "react-dom": "16.10.1",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
     "react-scripts": "3.2.0",
     "react-transition-group": "4.3.0",
     "react-use": "12.2.2"
