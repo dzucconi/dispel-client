@@ -5,7 +5,7 @@
   "dependencies": {
     "audiate": "2.0.0",
     "js-levenshtein": "1.1.6",
-    "lodash": "4.17.15",
+    "lodash": "4.17.19",
     "queryparams": "0.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
