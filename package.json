@@ -6,7 +6,7 @@
     "audiate": "2.0.0",
     "js-levenshtein": "1.1.6",
     "lodash": "4.17.21",
-    "queryparams": "0.1.0",
+    "queryparams": "1.2.2",
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-scripts": "3.4.4",
